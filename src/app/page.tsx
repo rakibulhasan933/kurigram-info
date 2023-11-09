@@ -1,3 +1,4 @@
+import { SearchBar } from '@/components/SearchBar'
 import Testimonials from '@/components/Testimonials'
 import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
 import Image from 'next/image'
@@ -14,6 +15,9 @@ export default function Home() {
             <h1 className=" md:text-4xl text-xl  text-center md:mb-12 mb-2 text-white font-extrabold">KURIGRAM</h1>
           </div>
         </div>
+      </div>
+      <div className="my-12 flex  justify-center">
+        <SearchBar />
       </div>
       {/* Hero */}
       <div className="md:mx-3 mx-2 my-6">

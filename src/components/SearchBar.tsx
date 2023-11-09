@@ -67,7 +67,7 @@ export function SearchBar() {
 							<Select onValueChange={field.onChange} defaultValue={field.value}>
 								<FormControl>
 									<SelectTrigger>
-										<SelectValue placeholder="Select a Category" />
+										<SelectValue placeholder="Category" />
 									</SelectTrigger>
 								</FormControl>
 								<SelectContent>

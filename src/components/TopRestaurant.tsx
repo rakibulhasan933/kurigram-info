@@ -7,7 +7,7 @@ function TopRestaurant() {
 	return (
 		<div className='my-4 mx-2 md:mx-6'>
 			<div className="flex flex-row items-center justify-between mt-2">
-				<h2 className="px-4 py-2 rounded md:text-xl text-lg font-medium text-white bg-pink-400 w-fit">Best Restaurants in Kurigram</h2>
+				<h2 className="px-4 py-2 rounded md:text-xl text-sm font-medium text-white bg-pink-400 w-fit">Best Restaurants in Kurigram</h2>
 				<Link className=' px-4 py-2 hover:text-white w-fit hover:bg-pink-400 rounded text-sm text-pink-400 font-semibold border-2 border-pink-400' href="/">See All</Link>
 			</div>
 			<div className="grid md:grid-cols-4 grid-cols-2 gap-3">
@@ -23,7 +23,7 @@ function TopRestaurant() {
 							<div className="flex justify-between">
 								<div className="flex flex-row gap-y-2">
 									<UtensilsIcon className='w-10 text-pink-400' />
-									<h2 className="text-lg font-medium">Restaurants</h2>
+									<h2 className="text-sm font-medium">Restaurants</h2>
 								</div>
 								<HeartIcon className='w-10 hover:text-pink-400' />
 							</div>
@@ -42,7 +42,7 @@ function TopRestaurant() {
 							<div className="flex justify-between">
 								<div className="flex flex-row gap-y-2">
 									<UtensilsIcon className='w-10 text-pink-400' />
-									<h2 className="text-lg font-medium">Restaurants</h2>
+									<h2 className="text-sm font-medium">Restaurants</h2>
 								</div>
 								<HeartIcon className='w-10 hover:text-pink-400' />
 							</div>
@@ -61,7 +61,7 @@ function TopRestaurant() {
 							<div className="flex justify-between">
 								<div className="flex flex-row gap-y-2">
 									<UtensilsIcon className='w-10 text-pink-400' />
-									<h2 className="text-lg font-medium">Restaurants</h2>
+									<h2 className="text-sm font-medium">Restaurants</h2>
 								</div>
 								<HeartIcon className='w-10 hover:text-pink-400' />
 							</div>
@@ -80,7 +80,7 @@ function TopRestaurant() {
 							<div className="flex justify-between">
 								<div className="flex flex-row gap-y-2">
 									<UtensilsIcon className='w-10 text-pink-400' />
-									<h2 className="text-lg font-medium">Restaurants</h2>
+									<h2 className="text-sm font-medium">Restaurants</h2>
 								</div>
 								<HeartIcon className='w-10 hover:text-pink-400' />
 							</div>

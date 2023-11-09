@@ -1,5 +1,6 @@
 import { SearchBar } from '@/components/SearchBar'
 import Testimonials from '@/components/Testimonials'
+import TopHotels from '@/components/TopHotels'
 import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -70,6 +71,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <TopHotels />
       <Testimonials />
     </main>
   )

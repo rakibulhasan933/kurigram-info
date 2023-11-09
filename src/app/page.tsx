@@ -1,5 +1,6 @@
 import { SearchBar } from '@/components/SearchBar'
 import Testimonials from '@/components/Testimonials'
+import TopEducations from '@/components/TopEducations'
 import TopHotels from '@/components/TopHotels'
 import TopPlaces from '@/components/TopPlaces'
 import TopRestaurant from '@/components/TopRestaurant'
@@ -76,6 +77,7 @@ export default function Home() {
       <TopHotels />
       <TopPlaces />
       <TopRestaurant />
+      <TopEducations />
       <Testimonials />
     </main>
   )

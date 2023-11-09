@@ -1,3 +1,4 @@
+import Testimonials from '@/components/Testimonials'
 import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -65,6 +66,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <Testimonials />
     </main>
   )
 }

@@ -2,6 +2,7 @@ import { SearchBar } from '@/components/SearchBar'
 import Testimonials from '@/components/Testimonials'
 import TopHotels from '@/components/TopHotels'
 import TopPlaces from '@/components/TopPlaces'
+import TopRestaurant from '@/components/TopRestaurant'
 import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -74,6 +75,7 @@ export default function Home() {
       </div>
       <TopHotels />
       <TopPlaces />
+      <TopRestaurant />
       <Testimonials />
     </main>
   )

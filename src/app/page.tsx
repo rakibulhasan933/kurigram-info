@@ -20,9 +20,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="my-12 mx-2 flex  justify-center">
-        <SearchBar />
-      </div>
       {/* Hero */}
       <div className="md:mx-3 mx-2 my-6">
         <div className="grid md:grid-cols-2  grid-cols-1 gap-2">

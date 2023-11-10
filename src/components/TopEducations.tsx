@@ -10,7 +10,7 @@ function TopEducations() {
 				<h2 className="px-4 py-2 rounded md:text-xl text-sm font-medium text-white bg-pink-400 w-fit">Educational Institutions</h2>
 				<Link className=' px-4 py-2 hover:text-white w-fit hover:bg-pink-400 rounded text-sm text-pink-400 font-semibold border-2 border-pink-400' href="/">See All</Link>
 			</div>
-			<div className="grid md:grid-cols-4 grid-cols-2 gap-3">
+			<div className="grid md:grid-cols-4 grid-cols-1 gap-3">
 				<Link href="/">
 					<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
 						<Image src="/education.jpg" className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />

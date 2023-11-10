@@ -66,7 +66,7 @@ export default function Home() {
               <h1 className=' text-xl font-bold'>Places</h1>
             </div>
           </Link>
-          <Link href="/education">
+          <Link href="/hotels">
             <div className="cursor-pointer flex flex-col gap-y-6 rounded items-center py-8 hover:shadow-xl px-2 border-2">
               <HotelIcon size={50} />
               <h1 className=' text-xl font-bold'>Hotels</h1>

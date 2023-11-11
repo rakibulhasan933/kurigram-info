@@ -9,3 +9,14 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Service {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String @unique
+  thumbnail   String
+  category    String
+  photos      String
+  description String
+
+  @@map("services")
+}

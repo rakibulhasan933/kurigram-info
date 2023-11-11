@@ -33,22 +33,6 @@ export const PATCH = async (request: Request) => {
 	}
 };
 
-// Deleted Services
-export const DELETE = async (request: Request) => {
-	try {
-		const body = await request.json();
-		const { id } = body;
-		const result = await prisma.service.delete({
-			where: {
-				id
-			}
-		});
-		return NextResponse.json(result);
-	} catch (error) {
-		return NextResponse.json(error);
-	}
-}
-
 
 // Create Services
 export const POST = async (request: Request) => {

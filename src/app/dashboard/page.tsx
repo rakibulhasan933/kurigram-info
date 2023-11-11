@@ -3,7 +3,7 @@ import CreateServices from '@/components/CreateServices';
 import { Button } from '@/components/ui/button';
 import { DialogHeader, DialogTitle, DialogTrigger, DialogContent, Dialog } from '@/components/ui/dialog';
 import { ServicesProps } from '@/type';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Loader2Icon, PlusSquareIcon } from 'lucide-react';
 import React from 'react'
@@ -19,6 +19,7 @@ import {
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import Image from 'next/image';
 import UpdateServices from '@/components/UpdateServices';
+import toast from 'react-hot-toast';
 
 function Dashboard() {
 	// Products Load
@@ -30,7 +31,28 @@ function Dashboard() {
 		},
 		refetchInterval: 1000,
 	});
-	console.log(data, "services");
+	// Products deleted
+	const { mutate, isPending } = useMutation({
+		mutationFn: async (id: string) => {
+			const response = await axios.delete(`/api/services/${id}`);
+			return response.data;
+		},
+	});
+	// Deleted handler
+	function handleDeleted(id: string) {
+		mutate(id, {
+			onSuccess: (data) => {
+				if (data?.id) {
+					toast.success("Services Deleted Successfully");
+				} else {
+					toast.error("Services Delete Failed");
+				}
+			},
+			onError: (error) => {
+				toast.error("Services Delete Failed");
+			}
+		});
+	}
 	return (
 		<div className='mx-2 my-6 md:mx-6'>
 			<h1 className="md:text-2xl text-lg font-bold text-orange-400 flex justify-center my-4">Content Management</h1>
@@ -109,7 +131,7 @@ function Dashboard() {
 															</AlertDialogHeader>
 															<AlertDialogFooter>
 																<AlertDialogCancel>Cancel</AlertDialogCancel>
-																<AlertDialogAction>Continue</AlertDialogAction>
+																<AlertDialogAction onClick={() => handleDeleted(item.id)}>Continue</AlertDialogAction>
 															</AlertDialogFooter>
 														</AlertDialogContent>
 													</AlertDialog>

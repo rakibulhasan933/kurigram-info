@@ -16,3 +16,18 @@ export const GET = async (request: Request, { params }: ParamsIProps) => {
 		return NextResponse.json(error);
 	}
 };
+
+// Deleted Services
+export const DELETE = async (request: Request, { params }: ParamsIProps) => {
+	try {
+		const { id } = params;
+		const result = await prisma.service.delete({
+			where: {
+				id
+			}
+		});
+		return NextResponse.json(result);
+	} catch (error) {
+		return NextResponse.json(error);
+	}
+}

@@ -29,11 +29,11 @@ function TopEducations() {
 					}}
 					navigation={true}
 					modules={[Autoplay, Navigation]}
-					className="mySwiper"
+					className="mySwiper flex flex-row"
 				>
 					<SwiperSlide>
-						<Link href="/">
-							<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+						<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							<Link href="/">
 								<Image src="/room.jpg" className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">Pera Palace Hotel</h2>
@@ -49,10 +49,12 @@ function TopEducations() {
 										<HeartIcon className='w-10 hover:text-pink-400' />
 									</div>
 								</div>
-							</div>
-						</Link>
-						<Link href="/">
-							<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							</Link>
+						</div>
+					</SwiperSlide>
+					<SwiperSlide>
+						<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							<Link href="/">
 								<Image src="/room.jpg" className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">Pera Palace Hotel</h2>
@@ -68,10 +70,12 @@ function TopEducations() {
 										<HeartIcon className='w-10 hover:text-pink-400' />
 									</div>
 								</div>
-							</div>
-						</Link>
-						<Link href="/">
-							<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							</Link>
+						</div>
+					</SwiperSlide>
+					<SwiperSlide>
+						<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							<Link href="/">
 								<Image src="/room.jpg" className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">Pera Palace Hotel</h2>
@@ -87,10 +91,12 @@ function TopEducations() {
 										<HeartIcon className='w-10 hover:text-pink-400' />
 									</div>
 								</div>
-							</div>
-						</Link>
-						<Link href="/">
-							<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							</Link>
+						</div>
+					</SwiperSlide>
+					<SwiperSlide>
+						<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
+							<Link href="/">
 								<Image src="/room.jpg" className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">Pera Palace Hotel</h2>
@@ -106,8 +112,8 @@ function TopEducations() {
 										<HeartIcon className='w-10 hover:text-pink-400' />
 									</div>
 								</div>
-							</div>
-						</Link>
+							</Link>
+						</div>
 					</SwiperSlide>
 				</Swiper>
 			</div>

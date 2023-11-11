@@ -75,7 +75,6 @@ export default function Home() {
       <TopPlaces />
       <TopRestaurant />
       <TopEducations />
-      <Testimonials />
     </main>
   )
 }

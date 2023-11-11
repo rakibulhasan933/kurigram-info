@@ -13,6 +13,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon, Star, StarHalf, StarIcon } from 'lucide-react';
+import { AddReviews } from '@/components/AddReviews';
 
 function HotelCard() {
 	return (
@@ -59,36 +60,34 @@ function HotelCard() {
 				<div className="px-2 md:px-4">
 					<div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
 						<div className="flex flex-col gap-y-4 gap-x-2">
-							<div className="bg-white p-2 rounded">
-								<h2 className="uppercase p-1 flex flex-row font-bold"><StarIcon className='w-4 mr-2' />AVERAGE REVIEWS</h2>
-								<hr className='w-full' />
-								<div className="flex flex-row gap-y-4 justify-around p-2">
-									<h1 className=' text-gray-600 font-bold'> <span className=' text-4xl font-bold text-gray-800'>9</span>/10</h1>
-									<div className="flex flex-col">
-										<h1 className=' text-sm font-bold'>Quality</h1>
-										<h1 className='text-gray-600 font-bold text-xl'>9/10</h1>
-									</div>
-									<div className="flex flex-col">
-										<h1 className=' text-sm font-bold'>Location</h1>
-										<h1 className='text-gray-600 font-bold text-xl'>9/10</h1>
-									</div>
-									<div className="flex flex-col">
-										<h1 className=' text-sm font-bold'>Space</h1>
-										<h1 className='text-gray-600 font-bold text-xl'>9/10</h1>
-									</div>
-									<div className="flex flex-col">
-										<h1 className=' text-sm font-bold'>Service</h1>
-										<h1 className='text-gray-600 font-bold text-xl'>9/10</h1>
-									</div>
-								</div>
-								<hr className='w-full' />
-								<h2 className="uppercase flex py-2 flex-row justify-center font-bold"><StarIcon className='w-4 mr-2' />ADD A REVIEWS</h2>
-							</div>
 							<div className="bg-white px-3 py-4 rounded">
 								<h2 className="uppercase p-1 flex flex-row font-bold"><FileSpreadsheet className='w-4 mr-1' /> DESCRIPTION</h2>
 								<hr className='w-full' />
 								<div className="py-1">
 									<p className=" text-sm font-normal">A preserved neo-classical icon dating back to the 19th century, the Pera Palace Hotel is a uniquely atmospheric context of the remarkable history, comfort following the conditions of the modern world and serene overlooks. Blend of neo-classical, art nouveau and oriental style; the building sketched with 115 rooms including 16 suites. Each one distinctively shaped to display unique details and to combine with the more than a hundred years of history that provide the hotel its incomparable grace.</p>
+								</div>
+							</div>
+							<div className="bg-white px-3 py-4">
+								<div className="flex flex-col gap-x-4">
+									<div className="flex flex-col my-3">
+										<div className="flex flex-row items-center pr-1">
+											<Image src="/pasta.jpg" className=' rounded-full object-cover mr-2' width={50} height={50} alt='user' />
+											<div className="flex flex-col gap-x-2">
+												<h1 className=" text-base font-bold">Rakibul Hasan</h1>
+												<p className=" text-sm font-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio iusto repellendus nobis libero doloremque quam perspiciatis ad eligendi nam recusandae!</p>
+											</div>
+										</div>
+									</div>
+									<div className="flex flex-col my-3">
+										<div className="flex flex-row items-center pr-1">
+											<Image src="/pasta.jpg" className=' rounded-full object-cover mr-2' width={50} height={50} alt='user' />
+											<div className="flex flex-col gap-x-2">
+												<h1 className=" text-base font-bold">Rakibul Hasan</h1>
+												<p className=" text-sm font-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio iusto repellendus nobis libero doloremque quam perspiciatis ad eligendi nam recusandae!</p>
+											</div>
+										</div>
+									</div>
+									<AddReviews />
 								</div>
 							</div>
 						</div>

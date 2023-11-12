@@ -32,7 +32,7 @@ function Search() {
 	return (
 		<div className='mx-2 md:mx-6 my-8'>
 			<div className="flex justify-center my-2">
-				<input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='What are you Looking for' className='flex md:mx-10 w-2/4 rounded-md  items-center space-x-2 border-2 border-black px-4 py-2' />
+				<input onChange={(e) => setSearch(e.target.value)} type="text" placeholder='What are you Looking for' className='flex md:mx-10 md:w-2/4 w-full rounded-md  items-center space-x-2 border-2 border-black px-4 py-2' />
 			</div>
 			<p className="my-4 text-blue-400 flex justify-center">
 				{services.length === 0 ? 'There are no products that match ' : `Showing ${services.length} ${search} for `}

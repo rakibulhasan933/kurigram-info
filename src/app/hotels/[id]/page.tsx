@@ -1,50 +1,24 @@
-"use client";
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Image from 'next/image';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon, Star, StarHalf, StarIcon } from 'lucide-react';
-import { AddReviews } from '@/components/AddReviews';
+import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon } from 'lucide-react';
+import SliderCard from '@/components/SliderCard';
+import RestaurantMenu from '@/components/RestaurantMenu';
+import Review from '@/components/Review';
+import { ParamsIProps, ServicesProps } from '@/type';
 
-function HotelCard() {
+// async function getData(id: string) {
+// 	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`);
+// 	console.log(res);
+// 	return res.json();
+// }
+
+async function HotelCard({ params }: ParamsIProps) {
+	const { id } = params;
+	// const data = await getData(id);
+	// console.log(data, 'load');
 	return (
 		<div className='bg-gray-50'>
-			<Swiper
-				spaceBetween={5}
-				centeredSlides={true}
-				autoplay={{
-					delay: 4000,
-					disableOnInteraction: false,
-				}}
-				pagination={{
-					clickable: true,
-				}}
-				navigation={true}
-				modules={[Autoplay, Pagination, Navigation]}
-				className="mySwiper"
-			>
-				<SwiperSlide>
-					<Image src="/london.jpg" className=' w-full object-cover' alt='banner' width={1280} height={400} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<Image src="/london.jpg" className=' w-full object-cover' alt='banner' width={1280} height={400} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<Image src="/london.jpg" className=' w-full object-cover' alt='banner' width={1280} height={400} />
-				</SwiperSlide>
-				<SwiperSlide>
-					<Image src="/london.jpg" className=' w-full object-cover' alt='banner' width={1280} height={400} />
-				</SwiperSlide>
-			</Swiper>
+			<SliderCard />
 			<div className="mx-2 md:mx-4 my-8">
 				<div className="flex justify-between md:flex-row flex-col gap-4  px-2  md:px-12 py-2">
 					<div className="flex flex-col">
@@ -68,27 +42,7 @@ function HotelCard() {
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">
-								<div className="flex flex-col gap-x-4">
-									<div className="flex flex-col my-3">
-										<div className="flex flex-row items-center pr-1">
-											<Image src="/pasta.jpg" className=' rounded-full object-cover mr-2' width={50} height={50} alt='user' />
-											<div className="flex flex-col gap-x-2">
-												<h1 className=" text-base font-bold">Rakibul Hasan</h1>
-												<p className=" text-sm font-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio iusto repellendus nobis libero doloremque quam perspiciatis ad eligendi nam recusandae!</p>
-											</div>
-										</div>
-									</div>
-									<div className="flex flex-col my-3">
-										<div className="flex flex-row items-center pr-1">
-											<Image src="/pasta.jpg" className=' rounded-full object-cover mr-2' width={50} height={50} alt='user' />
-											<div className="flex flex-col gap-x-2">
-												<h1 className=" text-base font-bold">Rakibul Hasan</h1>
-												<p className=" text-sm font-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio iusto repellendus nobis libero doloremque quam perspiciatis ad eligendi nam recusandae!</p>
-											</div>
-										</div>
-									</div>
-									<AddReviews />
-								</div>
+								<Review />
 							</div>
 						</div>
 						<div className="flex flex-col gap-y-4 gap-2 mb-4">
@@ -102,40 +56,7 @@ function HotelCard() {
 									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <MapPin className='w-6 mr-3' />Kurigram</h1>
 								</div>
 							</div>
-							<div className="grid md:grid-cols-2 grid-cols-1 gap-2 ">
-								<div className="flex flex-col gap-x-1 rounded-md cursor-pointer bg-white hover:border-pink-400 hover:border-[2px] shadow-xl">
-									<Image src="/pizza.jpg" className=' w-full object-cover rounded' alt='pizza' width={300} height={200} />
-									<div className="p-2">
-										<h2 className=" text-lg font-bold">Pizza</h2>
-										<h2 className="text-base font-bold flex flex-row"><span className='text-orange-400 mr-4'>4.5</span>  <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /><StarHalf className='w-4' color="#e3ad16" /></h2>
-										<p className="text-sm font-normal">Kurigram restaurant</p>
-									</div>
-								</div>
-								<div className="flex flex-col gap-x-1 rounded-md cursor-pointer bg-white hover:border-pink-400 hover:border-[2px] shadow-xl">
-									<Image src="/pizza.jpg" className=' w-full object-cover rounded' alt='pizza' width={300} height={200} />
-									<div className="p-2">
-										<h2 className=" text-lg font-bold">Pizza</h2>
-										<h2 className="text-base font-bold flex flex-row"><span className='text-orange-400 mr-4'>4.5</span>  <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /><StarHalf className='w-4' color="#e3ad16" /></h2>
-										<p className="text-sm font-normal">Kurigram restaurant</p>
-									</div>
-								</div>
-								<div className="flex flex-col gap-x-1 rounded-md cursor-pointer bg-white hover:border-pink-400 hover:border-[2px] shadow-xl">
-									<Image src="/pizza.jpg" className=' w-full object-cover rounded' alt='pizza' width={300} height={200} />
-									<div className="p-2">
-										<h2 className=" text-lg font-bold">Pizza</h2>
-										<h2 className="text-base font-bold flex flex-row"><span className='text-orange-400 mr-4'>4.5</span>  <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /><StarHalf className='w-4' color="#e3ad16" /></h2>
-										<p className="text-sm font-normal">Kurigram restaurant</p>
-									</div>
-								</div>
-								<div className="flex flex-col gap-x-1 rounded-md cursor-pointer bg-white hover:border-pink-400 hover:border-[2px] shadow-xl">
-									<Image src="/pizza.jpg" className=' w-full object-cover rounded' alt='pizza' width={300} height={200} />
-									<div className="p-2">
-										<h2 className=" text-lg font-bold">Pizza</h2>
-										<h2 className="text-base font-bold flex flex-row"><span className='text-orange-400 mr-4'>4.5</span>  <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /> <Star color="#e3ad16" className='w-4' /><StarHalf className='w-4' color="#e3ad16" /></h2>
-										<p className="text-sm font-normal">Kurigram restaurant</p>
-									</div>
-								</div>
-							</div>
+							<RestaurantMenu />
 							<div className="bg-white rounded">
 								<h2 className="p-1 flex flex-row font-bold"><Bookmark className='w-4 mr-1' />Map</h2>
 								<hr className='w-full my-3' />

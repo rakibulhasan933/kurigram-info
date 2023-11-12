@@ -1,19 +1,18 @@
 "use client";
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon, Star, StarHalf, StarIcon } from 'lucide-react';
+import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon, StarIcon } from 'lucide-react';
+import { useMutation } from '@tanstack/react-query';
+import { ParamsIProps } from '@/type';
 
-function EducationCard() {
+function EducationCard({ params }: ParamsIProps) {
+	const { id } = params;
+	console.log(id, "single page");
 	return (
 		<div className='bg-gray-50'>
 			<Swiper

@@ -32,7 +32,7 @@ const FormSchema = z.object({
 		}),
 })
 
-export function AddReviews({ id, category }: { id: string, category: string }) {
+export function AddReviews({ id }: { id: string }) {
 	const { user } = useUser();
 
 	const form = useForm<z.infer<typeof FormSchema>>({

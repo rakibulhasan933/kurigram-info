@@ -6,10 +6,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
-import { ServicesProps } from '@/type';
 
-function SliderCard({ data }: { data: ServicesProps }) {
-	const photo = data.photos;
+function SliderCard({ data }: {
+	data: {
+		id: string;
+		title: string;
+		thumbnails: string;
+		category: string;
+		photos: string[];
+		description: string;
+	} | null
+}) {
+	const photo = data?.photos;
 	return (
 		<Swiper
 			spaceBetween={5}
@@ -26,7 +34,7 @@ function SliderCard({ data }: { data: ServicesProps }) {
 			className="mySwiper"
 		>
 			{
-				photo.map((item, index) => (
+				photo?.map((item, index) => (
 					<SwiperSlide key={index}>
 						<Image src={item} className=' w-full object-cover' alt='banner' width={1280} height={400} />
 					</SwiperSlide>

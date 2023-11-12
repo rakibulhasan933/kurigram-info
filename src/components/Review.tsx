@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Loader2Icon } from 'lucide-react';
 import { ReviewIProps } from '@/type';
 
-function Review({ id, category }: { id: string, category: string }) {
+function Review({ id }: { id: string }) {
 	// Review List
 	const { mutate, isPending, data } = useMutation({
 		mutationFn: async (id: string) => {
@@ -44,7 +44,7 @@ function Review({ id, category }: { id: string, category: string }) {
 				)
 			}
 
-			<AddReviews id={id} category={category} />
+			<AddReviews id={id} />
 		</div>
 	)
 }

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 async function getData() {
-	const res = await fetch("https://kurigram.vercel.app/api/restaurants", {
+	const res = await fetch("http://localhost:3000/api/restaurants", {
 		cache: "no-store"
 	});
 	if (!res.ok) {
@@ -21,7 +21,7 @@ async function Restaurants() {
 			<div className="flex flex-row items-center justify-between mt-2">
 				<h2 className="px-4 py-2 rounded md:text-xl text-sm font-medium text-white bg-pink-400 w-fit">Best Restaurants in Kurigram</h2>
 			</div>
-			{data?.length === 0 ? <h2 className="py-4 flex justify-center items-center text-2xl font-semibold text-blue-400">Coming Soon... </h2> : <div className="mt-4 grid md:grid-cols-4  grid-cols-1 gap-3">
+			<div className="mt-4 grid md:grid-cols-4  grid-cols-1 gap-3">
 				{
 					data?.map((item) => (
 						<Link key={item.id} href={`/${item.category}/${item.id}`}>
@@ -44,7 +44,7 @@ async function Restaurants() {
 						</Link>
 					))
 				}
-			</div>}
+			</div>
 		</div>
 	)
 }

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 async function getData() {
-	const res = await fetch("https://kurigram.vercel.app/api/hotels", {
+	const res = await fetch("http://localhost:3000/api/hotels", {
 		cache: "no-store"
 	});
 	if (!res.ok) {

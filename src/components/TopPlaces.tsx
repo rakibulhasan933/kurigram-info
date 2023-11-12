@@ -52,7 +52,7 @@ function TopPlaces() {
 								data.slice(0, 4)?.map((item: ServicesProps, index: number) => (
 									<SwiperSlide key={index}>
 										<div className="flex justify-center flex-col mt-4 rounded-md border-[1px] hover:border-pink-400 hover:border-2 shadow-lg">
-											<Link href="/">
+											<Link href={`/${item.category}/${item.id}`}>
 												<Image src={item.thumbnails} className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 												<div className="px-2 py-4 flex flex-col gap-x-3">
 													<h2 className="font-bold text-lg  hover:text-pink-400">{item.title}</h2>

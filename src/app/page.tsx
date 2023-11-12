@@ -1,5 +1,3 @@
-import { SearchBar } from '@/components/SearchBar'
-import Testimonials from '@/components/Testimonials'
 import TopEducations from '@/components/TopEducations'
 import TopHotels from '@/components/TopHotels'
 import TopPlaces from '@/components/TopPlaces'
@@ -7,8 +5,13 @@ import TopRestaurant from '@/components/TopRestaurant'
 import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import prisma from '@/lib/db/prisma'
 
-export default function Home() {
+export default async function Home() {
+  const education = await prisma.service.findMany({ where: { category: "education" } });
+  const hotels = await prisma.service.findMany({ where: { category: "hotels" } });
+  const restaurants = await prisma.service.findMany({ where: { category: "restaurants" } });
+  const places = await prisma.service.findMany({ where: { category: "places" } });
   return (
     <main>
       <div className="flex flex-col items-center gap-2">
@@ -71,10 +74,10 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <TopHotels />
-      <TopPlaces />
-      <TopRestaurant />
-      <TopEducations />
+      <TopHotels data={hotels} />
+      <TopPlaces data={places} />
+      <TopRestaurant data={restaurants} />
+      <TopEducations data={education} />
     </main>
   )
 }

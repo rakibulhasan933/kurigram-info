@@ -45,7 +45,7 @@ export function SearchBar() {
 
 	return (
 		<Form  {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full max-w-fit items-center space-x-2">
+			<form onSubmit={form.handleSubmit(onSubmit)} className="">
 				<FormField
 					control={form.control}
 					name="search"

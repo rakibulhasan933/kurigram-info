@@ -1,14 +1,18 @@
-import { SearchBar } from '@/components/SearchBar'
+"use client";
+import { ServicesProps } from '@/type';
 import { HeartIcon, LocateFixedIcon, PhoneCallIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 function Search() {
+	const [search, setSearch] = useState("");
+	const [services, setServices] = useState<ServicesProps[]>([]);
+	const [isLoading, setLoading] = useState<Boolean>(true);
 	return (
 		<div className='mx-2 md:mx-6 my-8'>
 			<div className="flex justify-center my-2">
-				<SearchBar />
+				<input onChange={(e) => setSearch(e.target.value)} type="text" className='flex md:mx-10 w-2/4 rounded-md  items-center space-x-2 border-2 border-black px-4 py-2' />
 			</div>
 			<div className="mt-10 grid md:grid-cols-4  grid-cols-1 gap-3">
 				<Link href="/">

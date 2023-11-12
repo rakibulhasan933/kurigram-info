@@ -45,3 +45,6 @@ export interface ReviewIProps {
 export interface ReviewI {
 	id: string,
 }
+export interface SearchIProps {
+	search: string,
+}

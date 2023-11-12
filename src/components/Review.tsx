@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { AddReviews } from './AddReviews'
 
-function Review() {
+function Review({ id, category }: { id: string, category: string }) {
 	return (
 		<div className="flex flex-col gap-x-4">
 			<div className="flex flex-col my-3">
@@ -23,7 +23,7 @@ function Review() {
 					</div>
 				</div>
 			</div>
-			<AddReviews />
+			<AddReviews id={id} category={category} />
 		</div>
 	)
 }

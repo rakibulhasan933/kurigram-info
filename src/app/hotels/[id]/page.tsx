@@ -17,15 +17,14 @@ async function getData(id: string) {
 async function HotelCard({ params }: ParamsIProps) {
 	const { id } = params;
 	const data: ServicesProps = await getData(id);
-	console.log(data, 'load');
+	const { title, description, category } = data;
 	return (
 		<div className='bg-gray-50'>
 			<SliderCard data={data} />
 			<div className="mx-2 md:mx-4 my-8">
 				<div className="flex justify-between md:flex-row flex-col gap-4  px-2  md:px-12 py-2">
 					<div className="flex flex-col">
-						<h1 className="text-xl font-bold mb-2">Pera Palace Hotel</h1>
-						<p className=" text-xs font-light">Become a witness of the past with a stay in our rooms previously graced by Agatha Christie and Ernest Hemingway</p>
+						<h1 className="text-xl font-bold mb-2">{title}</h1>
 					</div>
 					<div className="">
 						<Button className=' border-2 hover:border-pink-400 hover:text-pink-400 md:mr-4 mr-2' variant="secondary"><HeartIcon className='w-10 text-pink-400 mr-2' />Favorite</Button>
@@ -37,19 +36,19 @@ async function HotelCard({ params }: ParamsIProps) {
 					<div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
 						<div className="flex flex-col gap-y-4 gap-x-2">
 							<div className="bg-white px-3 py-4 rounded">
-								<h2 className="uppercase p-1 flex flex-row font-bold"><FileSpreadsheet className='w-4 mr-1' /> DESCRIPTION</h2>
+								<h2 className="uppercase p-2 flex flex-row font-bold"><FileSpreadsheet className='w-4 mr-2' />{category} DESCRIPTION</h2>
 								<hr className='w-full' />
 								<div className="py-1">
-									<p className=" text-sm font-normal">A preserved neo-classical icon dating back to the 19th century, the Pera Palace Hotel is a uniquely atmospheric context of the remarkable history, comfort following the conditions of the modern world and serene overlooks. Blend of neo-classical, art nouveau and oriental style; the building sketched with 115 rooms including 16 suites. Each one distinctively shaped to display unique details and to combine with the more than a hundred years of history that provide the hotel its incomparable grace.</p>
+									<p className=" text-sm font-normal">{description}</p>
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">
-								<Review />
+								<Review id={id} category={category} />
 							</div>
 						</div>
 						<div className="flex flex-col gap-y-4 gap-2 mb-4">
 							<div className="bg-white px-3 py-4 rounded">
-								<h2 className="uppercase p-1 flex flex-row font-bold"><Bookmark className='w-4 mr-1' />BUSINESS INFO</h2>
+								<h2 className="uppercase p-1 flex flex-row font-bold"><Bookmark className='w-4 mr-1' />Contacts INFO</h2>
 								<hr className='w-full' />
 								<div className="px-3 py-4  flex flex-col gap-y-5">
 									<h1 className=" text-sm flex flex-row items-center font-medium hover:text-pink-400"> <MailIcon className='w-6 mr-3' /> info@perapalace.com</h1>

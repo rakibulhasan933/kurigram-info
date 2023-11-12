@@ -3,6 +3,7 @@ import { SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { DownMenu } from './DownMenu'
+import { UserButton } from "@clerk/nextjs";
 
 
 
@@ -14,6 +15,7 @@ function Navbar() {
 				<Link href="/search" className=" text-sm flex flex-row items-center font-semibold"><SearchIcon className='w-8 ml-2' /></Link>
 				<div className="flex flex-row items-center mr-1">
 					<DownMenu />
+					<UserButton afterSignOutUrl="/" />
 				</div>
 			</div>
 		</div>

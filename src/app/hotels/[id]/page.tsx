@@ -5,26 +5,26 @@ import SliderCard from '@/components/SliderCard';
 import RestaurantMenu from '@/components/RestaurantMenu';
 import Review from '@/components/Review';
 import { ParamsIProps, ServicesProps } from '@/type';
-
-async function getData(id: string) {
-	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`);
-	if (!res.ok) {
-		throw new Error("Failed Data fetch");
-	}
-	return res.json();
-}
+import prisma from '@/lib/db/prisma';
 
 async function HotelCard({ params }: ParamsIProps) {
 	const { id } = params;
-	const data: ServicesProps = await getData(id);
-	const { title, description, category } = data;
+	const data: {
+		id: string;
+		title: string;
+		thumbnails: string;
+		category: string;
+		photos: string[];
+		description: string;
+	} | null = await prisma.service.findUnique({ where: { id } });
+
 	return (
 		<div className='bg-gray-50'>
 			<SliderCard data={data} />
 			<div className="mx-2 md:mx-4 my-8">
 				<div className="flex justify-between md:flex-row flex-col gap-4  px-2  md:px-12 py-2">
 					<div className="flex flex-col">
-						<h1 className="text-xl font-bold mb-2">{title}</h1>
+						<h1 className="text-xl font-bold mb-2">{data?.title}</h1>
 					</div>
 					<div className="">
 						<Button className=' border-2 hover:border-pink-400 hover:text-pink-400 md:mr-4 mr-2' variant="secondary"><HeartIcon className='w-10 text-pink-400 mr-2' />Favorite</Button>
@@ -36,14 +36,14 @@ async function HotelCard({ params }: ParamsIProps) {
 					<div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
 						<div className="flex flex-col gap-y-4 gap-x-2">
 							<div className="bg-white px-3 py-4 rounded">
-								<h2 className="uppercase p-2 flex flex-row font-bold"><FileSpreadsheet className='w-4 mr-2' />{category} DESCRIPTION</h2>
+								<h2 className="uppercase p-2 flex flex-row font-bold"><FileSpreadsheet className='w-4 mr-2' />{data?.category} DESCRIPTION</h2>
 								<hr className='w-full' />
 								<div className="py-1">
-									<p className=" text-sm font-normal">{description}</p>
+									<p className=" text-sm font-normal">{data?.description}</p>
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">
-								<Review id={id} category={category} />
+								<Review id={id} />
 							</div>
 						</div>
 						<div className="flex flex-col gap-y-4 gap-2 mb-4">

@@ -19,7 +19,6 @@ async function EducationCard({ params }: ParamsIProps) {
 		description: string;
 	} | null = await prisma.service.findUnique({ where: { id } });
 
-	console.log(data);
 	return (
 		<div className='bg-gray-50'>
 			<SliderCard data={data} />

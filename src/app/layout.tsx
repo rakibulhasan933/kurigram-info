@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Ubuntu } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
@@ -7,7 +7,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Provider from '@/components/Provider';
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Ubuntu({ subsets: ['latin'], weight: ["300", "400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: 'Welcome to Kurigram District',

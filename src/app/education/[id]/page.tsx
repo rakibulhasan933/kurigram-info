@@ -7,7 +7,9 @@ import { ParamsIProps, ServicesProps } from '@/type';
 import TeacherCard from '@/components/TeacherCard';
 
 async function getData(id: string) {
-	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`);
+	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`, {
+		cache: "no-store"
+	});
 	if (!res.ok) {
 		throw new Error("Failed Data fetch");
 	}

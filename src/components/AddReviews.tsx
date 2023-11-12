@@ -91,7 +91,7 @@ export function AddReviews({ id, category }: { id: string, category: string }) {
 				/>
 				{isPending ? <Button type="submit" disabled>Loading...</Button> : <>
 					{user === null ? <Button >
-						<Link href={`/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F${category}%2F${id}`}>Login</Link>
+						<Link href="/sign-in">Login</Link>
 					</Button> : <Button type="submit">Submit</Button>}
 				</>}
 			</form>

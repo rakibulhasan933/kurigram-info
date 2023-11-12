@@ -16,6 +16,10 @@ import {
 } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { ReviewProps } from "@/type";
 
 const FormSchema = z.object({
 	comment: z
@@ -29,22 +33,40 @@ const FormSchema = z.object({
 })
 
 export function AddReviews({ id, category }: { id: string, category: string }) {
-	const { isLoaded, isSignedIn, user } = useUser();
+	const { user } = useUser();
 
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
 			comment: "",
 		},
+	});
+
+	// Create Services
+	const { mutate, isPending } = useMutation({
+		mutationFn: async ({ productId, userId, userName, photoUrl, comment }: ReviewProps) => {
+			const response = await axios.post("/api/review", {
+				productId, userId, userName, photoUrl, comment
+			});
+			return response.data;
+		}
 	})
 
 	function onSubmit(data: z.infer<typeof FormSchema>) {
 		const productId = id;
-		const userId = user?.id;
-		const userName = user?.fullName;
-		const photoUrl = user?.imageUrl;
+		const userId = user?.id as string;
+		const userName = user?.fullName as string;
+		const photoUrl = user?.imageUrl as string;
 		const comment = data.comment;
-		console.log({ id, userId, userName, photoUrl, comment, productId });
+		mutate({ productId, userId, userName, photoUrl, comment }, {
+			onSuccess: (data) => {
+				if (data?.id) {
+					toast.success("Comment Created Successfully");
+				} else {
+					toast.error("Comment Created Failed");
+				}
+			}
+		});
 	}
 
 
@@ -67,9 +89,11 @@ export function AddReviews({ id, category }: { id: string, category: string }) {
 						</FormItem>
 					)}
 				/>
-				{user === null ? <Button >
-					<Link href={`/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F${category}%2F${id}`}>Login</Link>
-				</Button> : <Button type="submit">Submit</Button>}
+				{isPending ? <Button type="submit" disabled>Loading...</Button> : <>
+					{user === null ? <Button >
+						<Link href={`/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F${category}%2F${id}`}>Login</Link>
+					</Button> : <Button type="submit">Submit</Button>}
+				</>}
 			</form>
 		</Form>
 	)

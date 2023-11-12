@@ -24,7 +24,7 @@ model Service {
 model Review {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   productId String
-  userId    String @unique
+  userId    String
   userName  String
   photoUrl  String
   comment   String

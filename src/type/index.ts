@@ -34,6 +34,14 @@ export interface ReviewProps {
 	photoUrl: string,
 	comment: string,
 }
-export interface ReviewI {
+export interface ReviewIProps {
+	id: string,
 	productId: string,
+	userId: string,
+	userName: string,
+	photoUrl: string,
+	comment: string,
+}
+export interface ReviewI {
+	id: string,
 }

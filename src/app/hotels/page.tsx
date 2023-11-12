@@ -7,7 +7,6 @@ import prisma from '@/lib/db/prisma';
 
 async function Hotels() {
 	const data: ServicesProps[] = await prisma.service.findMany({ where: { category: "hotels" } });
-	console.log({ data });
 	return (
 		<div className='mx-2 md:mx-4 my-4'>
 			<div className="flex flex-row items-center justify-between mt-2">

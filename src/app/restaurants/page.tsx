@@ -1,21 +1,11 @@
-import { ServicesProps } from '@/type';
 import { HeartIcon, LocateFixedIcon, PhoneCallIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
-async function getData() {
-	const res = await fetch("https://kurigram.vercel.app/api/restaurants", {
-		cache: "no-store"
-	});
-	if (!res.ok) {
-		throw new Error("Failed Data Fetch")
-	};
-	return res.json();
-}
+import prisma from '@/lib/db/prisma';
 
 async function Restaurants() {
-	const data: ServicesProps[] = await getData();
+	const data = await prisma.service.findMany({ where: { category: "restaurants" } });
 	return (
 		<div className='mx-2 md:mx-4 my-4'>
 			<div className="flex flex-row items-center justify-between mt-2">

@@ -27,3 +27,13 @@ export interface IdProps {
 export interface ParamsIProps {
 	params: IdProps
 };
+export interface ReviewProps {
+	productId: string,
+	userId: string,
+	userName: string,
+	photoUrl: string,
+	comment: string,
+}
+export interface ReviewI {
+	productId: string,
+}

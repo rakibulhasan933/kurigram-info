@@ -6,19 +6,21 @@ import RestaurantMenu from '@/components/RestaurantMenu';
 import Review from '@/components/Review';
 import { ParamsIProps, ServicesProps } from '@/type';
 
-// async function getData(id: string) {
-// 	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`);
-// 	console.log(res);
-// 	return res.json();
-// }
+async function getData(id: string) {
+	const res = await fetch(`https://kurigram.vercel.app/api/services/${id}`);
+	if (!res.ok) {
+		throw new Error("Failed Data fetch");
+	}
+	return res.json();
+}
 
 async function HotelCard({ params }: ParamsIProps) {
 	const { id } = params;
-	// const data = await getData(id);
-	// console.log(data, 'load');
+	const data: ServicesProps = await getData(id);
+	console.log(data, 'load');
 	return (
 		<div className='bg-gray-50'>
-			<SliderCard />
+			<SliderCard data={data} />
 			<div className="mx-2 md:mx-4 my-8">
 				<div className="flex justify-between md:flex-row flex-col gap-4  px-2  md:px-12 py-2">
 					<div className="flex flex-col">

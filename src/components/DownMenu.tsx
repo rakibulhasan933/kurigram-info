@@ -49,8 +49,28 @@ const components: { title: string; href: string; }[] = [
 const components2: { title: string; href: string; }[] = [
 
 	{
+		title: "Kurigram Sadar",
+		href: "/",
+	},
+	{
 		title: "Bhurungamari",
 		href: "/bhurungamari",
+	},
+	{
+		title: "Nageshwari",
+		href: "/nageshwari",
+	},
+	{
+		title: "Phulbari",
+		href: "/bhurungamari",
+	},
+	{
+		title: "Rajarhat",
+		href: "/rajarhat",
+	},
+	{
+		title: "Phulbari",
+		href: "/phulbari",
 	},
 	{
 		title: "Chilmari ",
@@ -61,7 +81,7 @@ const components2: { title: string; href: string; }[] = [
 		href: "/rajarhat",
 	},
 	{
-		title: "Rajibpur",
+		title: "Chor Rajibpur",
 		href: "/rajibpur",
 	}
 ]

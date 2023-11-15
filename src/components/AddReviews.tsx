@@ -1,5 +1,4 @@
 "use client"
-import { useUser } from "@clerk/nextjs";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -20,6 +19,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { ReviewProps } from "@/type";
+import { useUser } from "./ContextProvider"
 
 const FormSchema = z.object({
 	comment: z
@@ -55,8 +55,8 @@ export function AddReviews({ id }: { id: string }) {
 	function onSubmit(data: z.infer<typeof FormSchema>) {
 		const productId = id;
 		const userId = user?.id as string;
-		const userName = user?.fullName as string;
-		const photoUrl = user?.imageUrl as string;
+		const userName = user?.username as string;
+		const photoUrl = user?.photoUrl as string;
 		const comment = data.comment;
 		mutate({ productId, userId, userName, photoUrl, comment }, {
 			onSuccess: (data) => {

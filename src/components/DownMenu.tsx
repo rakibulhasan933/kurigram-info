@@ -73,13 +73,13 @@ export function DownMenu() {
 		setUser(null);
 	}
 	return (
-		<div className=" flex flex-row gap-y-2">
+		<div className=" flex flex-row">
 			<NavigationMenu>
 				<NavigationMenuList>
 					<NavigationMenuItem>
 						<NavigationMenuTrigger className=" md:text-base text-sm">Services</NavigationMenuTrigger>
 						<NavigationMenuContent>
-							<ul className="w-fit px-2">
+							<ul className="w-fit">
 								{components.map((component) => (
 									<ListItem
 										key={component.title}

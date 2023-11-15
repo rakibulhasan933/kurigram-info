@@ -99,7 +99,7 @@ export function DownMenu() {
 					<NavigationMenuItem>
 						<NavigationMenuTrigger className="md:text-base text-xs">Services</NavigationMenuTrigger>
 						<NavigationMenuContent>
-							<ul className="w-fit">
+							<ul className="w-fit p-2">
 								{components.map((component) => (
 									<ListItem
 										key={component.title}

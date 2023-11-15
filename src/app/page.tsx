@@ -6,6 +6,7 @@ import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 
 import Image from 'next/image'
 import Link from 'next/link'
 import prisma from '@/lib/db/prisma'
+import HelpLine from '@/components/HelpLine'
 
 export default async function Home() {
   const education = await prisma.service.findMany({ where: { category: "education" } });
@@ -78,6 +79,7 @@ export default async function Home() {
       <TopPlaces data={places} />
       <TopRestaurant data={restaurants} />
       <TopEducations data={education} />
+      <HelpLine />
     </main>
   )
 }

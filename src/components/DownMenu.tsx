@@ -73,11 +73,11 @@ export function DownMenu() {
 		setUser(null);
 	}
 	return (
-		<div className=" flex flex-row">
+		<div className="flex flex-row">
 			<NavigationMenu>
 				<NavigationMenuList>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className=" md:text-base text-sm">Services</NavigationMenuTrigger>
+						<NavigationMenuTrigger className="md:text-base text-xs">Services</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="w-fit">
 								{components.map((component) => (
@@ -92,7 +92,7 @@ export function DownMenu() {
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 					<NavigationMenuItem>
-						<NavigationMenuTrigger className=" md:text-base text-sm">Upazila</NavigationMenuTrigger>
+						<NavigationMenuTrigger className="md:text-base text-xs">Upazila</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[120px] gap-1 p-1 md:w-[200px] md:grid-cols-1 ">
 								{components2.map((component, index) => (

@@ -10,7 +10,7 @@ import { isMobile } from 'react-device-detect';
 function Navbar() {
 
 	return (
-		<div className='px-1 py-3 md:px-4 bg-slate-200 '>
+		<div className='py-3 md:px-4 bg-slate-200'>
 			<div className="flex flex-row justify-between items-center">
 				<Link className='font-bold md:text-lg text-sm hover:text-blue-400 ' href="/">Kurigram</Link>
 				{

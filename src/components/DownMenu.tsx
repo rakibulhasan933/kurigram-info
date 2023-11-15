@@ -5,6 +5,19 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import {
 	NavigationMenu,
 	NavigationMenuContent,
 	NavigationMenuItem,
@@ -13,6 +26,7 @@ import {
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { useUser } from "./ContextProvider"
 
 const components: { title: string; href: string; }[] = [
 	{
@@ -32,35 +46,83 @@ const components: { title: string; href: string; }[] = [
 		href: "/places",
 	}
 ]
+const components2: { title: string; href: string; }[] = [
+
+	{
+		title: "Bhurungamari",
+		href: "/bhurungamari",
+	},
+	{
+		title: "Chilmari ",
+		href: "/chilmari ",
+	},
+	{
+		title: "Rajarhat",
+		href: "/rajarhat",
+	},
+	{
+		title: "Rajibpur",
+		href: "/rajibpur",
+	}
+]
 
 export function DownMenu() {
+	const { user, setUser } = useUser();
+	function logOut() {
+		localStorage.removeItem('id');
+		setUser(null);
+	}
 	return (
-		<NavigationMenu>
-			<NavigationMenuList>
-				<NavigationMenuItem>
-					<NavigationMenuTrigger>Services</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<ul className="grid w-[140px] gap-2 p-2 md:w-[200px] md:grid-cols-1 ">
-							{components.map((component) => (
-								<ListItem
-									key={component.title}
-									title={component.title}
-									href={component.href}
-								>
-								</ListItem>
-							))}
-						</ul>
-					</NavigationMenuContent>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<Link href="/" legacyBehavior passHref>
-						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-							Contacts
-						</NavigationMenuLink>
-					</Link>
-				</NavigationMenuItem>
-			</NavigationMenuList>
-		</NavigationMenu>
+		<div className=" flex flex-row gap-y-2">
+			<NavigationMenu>
+				<NavigationMenuList>
+					<NavigationMenuItem>
+						<NavigationMenuTrigger className=" md:text-base text-sm">Services</NavigationMenuTrigger>
+						<NavigationMenuContent>
+							<ul className="w-fit px-2">
+								{components.map((component) => (
+									<ListItem
+										key={component.title}
+										title={component.title}
+										href={component.href}
+									>
+									</ListItem>
+								))}
+							</ul>
+						</NavigationMenuContent>
+					</NavigationMenuItem>
+					<NavigationMenuItem>
+						<NavigationMenuTrigger className=" md:text-base text-sm">Upazila</NavigationMenuTrigger>
+						<NavigationMenuContent>
+							<ul className="grid w-[120px] gap-1 p-1 md:w-[200px] md:grid-cols-1 ">
+								{components2.map((component, index) => (
+									<NavigationMenuLink href={component.href} className="p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-sm font-medium" key={index}>{component.title}</NavigationMenuLink>
+								))}
+							</ul>
+						</NavigationMenuContent>
+					</NavigationMenuItem>
+				</NavigationMenuList>
+			</NavigationMenu>
+			<div className="mx-1">
+				{user?.phone ? (<AlertDialog>
+					<AlertDialogTrigger asChild>
+						<Image src={user?.photoUrl as string} className=' rounded-full' width={40} height={40} priority={true} alt='profile' />
+					</AlertDialogTrigger>
+					<AlertDialogContent>
+						<AlertDialogHeader>
+							<AlertDialogTitle>Logout Are you absolutely sure?</AlertDialogTitle>
+						</AlertDialogHeader>
+						<AlertDialogFooter>
+							<AlertDialogCancel>Cancel</AlertDialogCancel>
+							<AlertDialogAction onClick={() => logOut()} >Continue</AlertDialogAction>
+						</AlertDialogFooter>
+					</AlertDialogContent>
+				</AlertDialog>) :
+					<Button className='text-sm bg-blue-400 text-white' asChild>
+						<Link href="/login">Login</Link>
+					</Button>}
+			</div>
+		</div>
 	)
 }
 

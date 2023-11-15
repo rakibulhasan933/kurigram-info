@@ -3,9 +3,9 @@ import { Ubuntu } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer';
-import { ClerkProvider } from '@clerk/nextjs'
 import Provider from '@/components/Provider';
 import { Toaster } from "react-hot-toast";
+import { ContextProvider } from '@/components/ContextProvider';
 
 const inter = Ubuntu({ subsets: ['latin'], weight: ["300", "400", "500", "700"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    <ContextProvider>
       <Provider>
         <html lang="en">
           <body className={inter.className}>
@@ -31,6 +31,6 @@ export default function RootLayout({
           </body>
         </html>
       </Provider>
-    </ClerkProvider>
+    </ContextProvider>
   )
 }

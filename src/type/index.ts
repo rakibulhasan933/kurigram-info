@@ -48,3 +48,21 @@ export interface ReviewI {
 export interface SearchIProps {
 	search: string,
 }
+export interface PasswordIProps {
+	id: string,
+	password: string,
+};
+export interface UserProps {
+	id?: string,
+	username: string,
+	password: string,
+	phone: string,
+	photoUrl: string,
+}
+export interface UserIProps {
+	id: string,
+	username: string,
+	password: string,
+	phone: string,
+	photoUrl: string,
+}

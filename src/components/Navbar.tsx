@@ -3,11 +3,29 @@ import { SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import { DownMenu } from './DownMenu'
-import { UserButton } from "@clerk/nextjs";
 import { isMobile } from 'react-device-detect';
+import { useUser } from './ContextProvider'
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
 
 
 function Navbar() {
+	const { user, setUser } = useUser();
+	function logOut() {
+		localStorage.removeItem('id');
+		setUser(null);
+	}
 	return (
 		<div className='px-1 py-3 md:px-4 bg-slate-200 '>
 			<div className="flex flex-row justify-between items-center">
@@ -18,7 +36,23 @@ function Navbar() {
 				<div className="flex flex-row items-center mx-1">
 					<DownMenu />
 					<div className="mx-2">
-						<UserButton afterSignOutUrl="/" />
+						{user?.phone ? (<AlertDialog>
+							<AlertDialogTrigger asChild>
+								<Image src={user?.photoUrl as string} className=' rounded-full' width={40} height={40} priority={true} alt='profile' />
+							</AlertDialogTrigger>
+							<AlertDialogContent>
+								<AlertDialogHeader>
+									<AlertDialogTitle>Logout Are you absolutely sure?</AlertDialogTitle>
+								</AlertDialogHeader>
+								<AlertDialogFooter>
+									<AlertDialogCancel>Cancel</AlertDialogCancel>
+									<AlertDialogAction onClick={() => logOut()} >Continue</AlertDialogAction>
+								</AlertDialogFooter>
+							</AlertDialogContent>
+						</AlertDialog>) :
+							<Button asChild>
+								<Link href="/login">Login</Link>
+							</Button>}
 					</div>
 				</div>
 			</div>

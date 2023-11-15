@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import prisma from '@/lib/db/prisma'
 import HelpLine from '@/components/HelpLine'
+import Stats from '@/components/Stats'
 
 export default async function Home() {
   const education = await prisma.service.findMany({ where: { category: "education" } });
@@ -18,7 +19,7 @@ export default async function Home() {
       <div className="flex flex-col items-center gap-2">
         <div className="w-full relative">
           {/* Image Size 1280X400 */}
-          <Image src="/london.jpg" className='w-full object-cover' priority={true} width={1280} height={400} alt='banner' />
+          <Image src="/london.jpg" className='w-full object-cover opacity-90' priority={true} width={1280} height={400} alt='banner' />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
             <h1 className=" md:text-4xl text-xl  text-center md:mb-12 mb-2 text-white font-extrabold uppercase ">Welcome To KURIGRAM</h1>
           </div>
@@ -79,6 +80,7 @@ export default async function Home() {
       <TopPlaces data={places} />
       <TopRestaurant data={restaurants} />
       <TopEducations data={education} />
+      <Stats />
       <HelpLine />
     </main>
   )

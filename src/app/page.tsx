@@ -47,29 +47,29 @@ export default async function Home() {
       {/* Category */}
       <div className="md:px-20 px-4 md:py-12 py-6">
         <h1 className="text-center text-2xl font-bold md:py-10 py-4">Category</h1>
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-6">
+        <div className="grid md:grid-cols-4 grid-cols-3 gap-2">
           <Link href="/education">
-            <div className="cursor-pointer flex flex-col gap-y-6 rounded items-center py-8 hover:shadow-xl px-2 border-2">
-              <GraduationCapIcon size={50} />
-              <h1 className=' text-xl font-bold'>Educational Institutions</h1>
+            <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
+              <GraduationCapIcon color='blue' size={40} />
+              <h1 className='md:text-xl text-sm font-bold'>Institutions</h1>
             </div>
           </Link>
           <Link href="/restaurants">
-            <div className="cursor-pointer flex flex-col gap-y-6 rounded items-center py-8 hover:shadow-xl px-2 border-2">
-              <UtensilsCrossedIcon size={50} />
-              <h1 className=' text-xl font-bold'>Restaurants</h1>
+            <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
+              <UtensilsCrossedIcon color='blue' size={40} />
+              <h1 className='md:text-xl text-sm font-bold'>Restaurants</h1>
             </div>
           </Link>
           <Link href="/places">
-            <div className="cursor-pointer flex flex-col gap-y-6 rounded items-center py-8 hover:shadow-xl px-2 border-2">
-              <LandPlotIcon size={50} />
-              <h1 className=' text-xl font-bold'>Places</h1>
+            <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
+              <LandPlotIcon color='blue' size={40} />
+              <h1 className='md:text-xl text-sm font-bold'>Places</h1>
             </div>
           </Link>
           <Link href="/hotels">
-            <div className="cursor-pointer flex flex-col gap-y-6 rounded items-center py-8 hover:shadow-xl px-2 border-2">
-              <HotelIcon size={50} />
-              <h1 className=' text-xl font-bold'>Hotels</h1>
+            <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
+              <HotelIcon color='blue' size={40} />
+              <h1 className='md:text-xl text-sm font-bold'>Hotels</h1>
             </div>
           </Link>
         </div>

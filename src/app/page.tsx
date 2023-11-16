@@ -9,12 +9,14 @@ import prisma from '@/lib/db/prisma'
 import HelpLine from '@/components/HelpLine'
 import Stats from '@/components/Stats'
 import Team from '@/components/Team'
+import TopHospitals from '@/components/TopHospital'
 
 export default async function Home() {
   const education = await prisma.service.findMany({ where: { category: "education" } });
   const hotels = await prisma.service.findMany({ where: { category: "hotels" } });
   const restaurants = await prisma.service.findMany({ where: { category: "restaurants" } });
   const places = await prisma.service.findMany({ where: { category: "places" } });
+  const hospital = await prisma.service.findMany({ where: { category: "hospital" } });
   return (
     <main>
       <div className="flex flex-col items-center gap-2">
@@ -81,6 +83,7 @@ export default async function Home() {
       <TopPlaces data={places} />
       <TopRestaurant data={restaurants} />
       <TopEducations data={education} />
+      <TopHospitals data={hospital} />
       <Stats />
       <Team />
       <HelpLine />

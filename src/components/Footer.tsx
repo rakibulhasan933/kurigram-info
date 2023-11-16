@@ -1,4 +1,4 @@
-import { FacebookIcon, LinkedinIcon, MailCheckIcon, PhoneCallIcon, PhoneForwardedIcon, PhoneIncomingIcon, YoutubeIcon } from 'lucide-react'
+import { FacebookIcon, LinkedinIcon, MailCheckIcon, MapPinIcon, PhoneCallIcon, PhoneForwardedIcon, PhoneIncomingIcon, YoutubeIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -16,21 +16,14 @@ function Footer() {
 							<ol className='space-y-2 text-sm mt-5'>
 								<li className='flex gap-2'>
 									<FacebookIcon className=' text-xl  text-blue-600 font-bold' />
-									<Link className='font-semibold hover:underline' href="https://www.facebook.com/profile.php?id=100093723266018" >
+									<Link className='font-semibold hover:underline' href="https://www.facebook.com/Sherlock.Touhid" >
 										Facebook
 									</Link>
 								</li>
 								<li className='flex gap-2'>
-									<YoutubeIcon className=' text-xl  text-red-600 font-bold' />
-									<Link className='font-semibold hover:underline' href="" >
-										Youtube
-									</Link>
-								</li>
-
-								<li className='flex gap-2'>
 									<PhoneCallIcon className=' text-xl  text-green-500 font-bold' />
 									<Link className='font-semibold hover:underline' href="" >
-										+8801318180268
+										+8801737933498
 									</Link>
 								</li>
 							</ol>
@@ -39,16 +32,12 @@ function Footer() {
 							<h1 className='text-xl mt-8 font-bold font-sans opacity-75 underline  '>Contact Us</h1>
 							<ol className='space-y-2 text-sm mt-5'>
 								<li className='flex gap-2'>
-									<PhoneIncomingIcon />
-									<Link href="" className='font-medium'> +8801318180268</Link>
+									<MapPinIcon color='blue' />
+									<Link href="" className=' font-bold'> Kurigram, Bangladesh</Link>
 								</li>
 								<li className='flex gap-2'>
-									<PhoneForwardedIcon />
-									<Link href="" className='font-medium'> +8801890570355</Link>
-								</li>
-								<li className='flex gap-2'>
-									<MailCheckIcon />
-									<Link href="" className='font-medium'>kurigram@info.com</Link>
+									<MailCheckIcon color='blue' />
+									<Link href="" className=' font-bold'>hello@touhid.me</Link>
 								</li>
 
 							</ol>

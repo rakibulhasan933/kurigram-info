@@ -6,6 +6,7 @@ import Review from '@/components/Review';
 import { ParamsIProps } from '@/type';
 import TeacherCard from '@/components/TeacherCard';
 import prisma from '@/lib/db/prisma';
+import Comment from '@/components/Comment';
 
 
 async function EducationCard({ params }: ParamsIProps) {
@@ -50,7 +51,7 @@ async function EducationCard({ params }: ParamsIProps) {
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">
-								<Review id={id} />
+								<Comment data={data} id={id} />
 							</div>
 						</div>
 					</div>

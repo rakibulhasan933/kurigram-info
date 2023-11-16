@@ -45,7 +45,7 @@ function Doctors({ id }: { id: string }) {
 						<Loader2Icon className="h-10 w-10 text-blue-500 animate-spin" />
 					</div>
 				) : (
-					<div className='flex md:flex-row flex-col items-stretch gap-1'>
+					<div className='grid grid-cols-1 md:grid-cols-2 gap-1'>
 						{
 							data?.map((item: TeacherIProps) => (
 								<div key={item.id} className="md:basis-1/3 flex flex-col gap-x-1 items-center rounded-md cursor-pointer bg-white hover:border-pink-400 hover:border-[1px] shadow-xl p-2">

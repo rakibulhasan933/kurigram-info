@@ -1,11 +1,10 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { BedDoubleIcon, Bookmark, BriefcaseIcon, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, MapPinIcon, ParkingCircleIcon, PhoneCallIcon, WifiIcon } from 'lucide-react';
+import { Bookmark, BriefcaseIcon, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, MapPinIcon, ParkingCircleIcon, PhoneCallIcon, WifiIcon } from 'lucide-react';
 import SliderCard from '@/components/SliderCard';
-import RestaurantMenu from '@/components/RestaurantMenu';
-import Review from '@/components/Review';
+
 import { ParamsIProps, ServicesProps } from '@/type';
 import prisma from '@/lib/db/prisma';
+import Comment from '@/components/Comment';
 
 async function HotelCard({ params }: ParamsIProps) {
 	const { id } = params;
@@ -70,6 +69,9 @@ async function HotelCard({ params }: ParamsIProps) {
 									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <Globe className='w-6 mr-3' />https://www.perapalace.com</h1>
 									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <MapPin className='w-6 mr-3' />Kurigram</h1>
 								</div>
+							</div>
+							<div className="bg-white px-3 py-4">
+								<Comment data={data} id={id} />
 							</div>
 						</div>
 					</div>

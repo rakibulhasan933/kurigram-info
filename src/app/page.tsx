@@ -2,7 +2,7 @@ import TopEducations from '@/components/TopEducations'
 import TopHotels from '@/components/TopHotels'
 import TopPlaces from '@/components/TopPlaces'
 import TopRestaurant from '@/components/TopRestaurant'
-import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon } from 'lucide-react'
+import { GraduationCapIcon, UtensilsCrossedIcon, LandPlotIcon, HotelIcon, ActivitySquareIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import prisma from '@/lib/db/prisma'
@@ -75,6 +75,12 @@ export default async function Home() {
             <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
               <HotelIcon color='blue' size={40} />
               <h1 className='md:text-xl text-sm font-bold'>Hotels</h1>
+            </div>
+          </Link>
+          <Link href="/hospitals">
+            <div className="flex flex-col md:gap-y-6 gap-y-1 rounded items-center md:py-8 py-4  hover:shadow-xl px-2 border-2">
+              <ActivitySquareIcon color='blue' size={40} />
+              <h1 className='md:text-xl text-sm font-bold'>Hospitals</h1>
             </div>
           </Link>
         </div>

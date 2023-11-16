@@ -154,7 +154,7 @@ function CreateServices() {
 									<SelectItem value="restaurants">Restaurants</SelectItem>
 									<SelectItem value="places">Places</SelectItem>
 									<SelectItem value="education">Institutions</SelectItem>
-									<SelectItem value="hospital">Institutions</SelectItem>
+									<SelectItem value="hospital">Hospital</SelectItem>
 								</SelectContent>
 							</Select>
 							<FormMessage />

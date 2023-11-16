@@ -5,7 +5,7 @@ import prisma from "@/lib/db/prisma";
 export const GET = async (request: Request, { params }: ParamsIProps) => {
 	try {
 		const { id } = params;
-		const result = await prisma.teacher.findMany({
+		const result = await prisma.doctor.findMany({
 			where: {
 				productId: id
 			}

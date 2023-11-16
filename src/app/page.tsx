@@ -8,6 +8,7 @@ import Link from 'next/link'
 import prisma from '@/lib/db/prisma'
 import HelpLine from '@/components/HelpLine'
 import Stats from '@/components/Stats'
+import Team from '@/components/Team'
 
 export default async function Home() {
   const education = await prisma.service.findMany({ where: { category: "education" } });
@@ -81,6 +82,7 @@ export default async function Home() {
       <TopRestaurant data={restaurants} />
       <TopEducations data={education} />
       <Stats />
+      <Team />
       <HelpLine />
     </main>
   )

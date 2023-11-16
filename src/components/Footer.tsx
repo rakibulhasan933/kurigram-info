@@ -1,7 +1,6 @@
 import { FacebookIcon, LinkedinIcon, MailCheckIcon, PhoneCallIcon, PhoneForwardedIcon, PhoneIncomingIcon, YoutubeIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { isBrowser, isMobile } from 'react-device-detect'
 
 function Footer() {
 	return (

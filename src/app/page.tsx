@@ -16,7 +16,7 @@ export default async function Home() {
   const hotels = await prisma.service.findMany({ where: { category: "hotels" } });
   const restaurants = await prisma.service.findMany({ where: { category: "restaurants" } });
   const places = await prisma.service.findMany({ where: { category: "places" } });
-  const hospital = await prisma.service.findMany({ where: { category: "hospital" } });
+  const hospital = await prisma.service.findMany({ where: { category: "hospitals" } });
   return (
     <main>
       <div className="flex flex-col items-center gap-2">

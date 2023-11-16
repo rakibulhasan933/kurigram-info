@@ -5,7 +5,7 @@ import React from 'react'
 import prisma from '@/lib/db/prisma';
 
 async function Hospitals() {
-	const data = await prisma.service.findMany({ where: { category: "hospital" } });
+	const data = await prisma.service.findMany({ where: { category: "hospitals" } });
 	return (
 		<div className='mx-2 md:mx-4 my-4'>
 			<div className="flex flex-row items-center justify-between mt-2">

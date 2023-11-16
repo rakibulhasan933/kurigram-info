@@ -152,7 +152,7 @@ export function DownMenu() {
 									<li className='text-lg font-medium my-4 bg-red-500 text-white rounded px-4 py-2'>
 										<AlertDialog>
 											<AlertDialogTrigger asChild>
-												<button>Logout</button>
+												<button onClick={() => logOut()}>Logout</button>
 											</AlertDialogTrigger>
 											<AlertDialogContent>
 												<AlertDialogHeader>

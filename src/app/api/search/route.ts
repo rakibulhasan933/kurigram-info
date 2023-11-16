@@ -7,13 +7,17 @@ export const POST = async (request: Request) => {
 		const body: SearchIProps = await request.json();
 		const { search, category } = body;
 		console.log(body);
-
-		const result = await prisma.service.findMany({
-			where: {
-				category
-			}
-		});
-		return NextResponse.json(result);
+		if (category === "all") {
+			const result = await prisma.service.findMany();
+			return NextResponse.json(result);
+		} else {
+			const result = await prisma.service.findMany({
+				where: {
+					category
+				}
+			});
+			return NextResponse.json(result);
+		}
 	} catch (error) {
 		return NextResponse.json(error);
 	};

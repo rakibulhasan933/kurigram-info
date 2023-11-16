@@ -81,3 +81,31 @@ export interface TeacherIProps {
 	department: string,
 	phone: string,
 }
+export interface MenuProps {
+	productId: string,
+	name: string,
+	price: string,
+	image: string
+}
+export interface MenuIProps {
+	id: string,
+	productId: string,
+	name: string,
+	price: string,
+	image: string
+}
+export interface DoctorProps {
+	name: string,
+	image: string,
+	productId: string,
+	department: string,
+	phone: string,
+}
+export interface DoctorIProps {
+	id: string,
+	name: string,
+	productId: string,
+	image: string,
+	department: string,
+	phone: string,
+}

@@ -22,14 +22,8 @@ async function RestaurantCard({ params }: ParamsIProps) {
 		<div className='bg-gray-50'>
 			<SliderCard data={data} />
 			<div className="mx-2 md:mx-4 my-8">
-				<div className="flex justify-between md:flex-row flex-col gap-4  px-2  md:px-12 py-2">
-					<div className="flex flex-col">
-						<h1 className="text-xl font-bold mb-2">{data?.title}</h1>
-					</div>
-					<div className="">
-						<Button className=' border-2 hover:border-pink-400 hover:text-pink-400 md:mr-4 mr-2' variant="secondary"><HeartIcon className='w-10 text-pink-400 mr-2' />Favorite</Button>
-						<Button className=' bg-pink-500 text-white hover:bg-pink-400' variant="secondary"><SoupIcon className='w-10 text-white mr-1' />Oder Now</Button>
-					</div>
+				<div className="px-2 md:px-12 py-2">
+					<h1 className="md:text-2xl text-xl font-medium mb-2 uppercase text-blue-400">WELCOME TO {data?.title}</h1>
 				</div>
 				<hr className='w-full h-2 my-4' />
 				<div className="px-2 md:px-4">
@@ -43,7 +37,6 @@ async function RestaurantCard({ params }: ParamsIProps) {
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">
-								<Review id={id} />
 							</div>
 						</div>
 						<div className="flex flex-col gap-y-4 gap-2 mb-4">

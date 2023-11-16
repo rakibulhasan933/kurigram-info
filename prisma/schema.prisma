@@ -43,6 +43,27 @@ model Teacher {
   @@map("teachers")
 }
 
+model Menu {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  productId String
+  name      String
+  price     String
+  image     String
+
+  @@map("menus")
+}
+
+model Doctor {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  image      String
+  department String
+  phone      String
+  productId  String
+
+  @@map("doctors")
+}
+
 model Review {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   productId String

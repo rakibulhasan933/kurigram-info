@@ -5,6 +5,7 @@ import { ParamsIProps } from '@/type';
 import TeacherCard from '@/components/TeacherCard';
 import prisma from '@/lib/db/prisma';
 import Comment from '@/components/Comment';
+import Doctors from '@/components/Doctors';
 
 
 async function EducationCard({ params }: ParamsIProps) {
@@ -36,7 +37,7 @@ async function EducationCard({ params }: ParamsIProps) {
 									<p className=" text-sm font-normal">{data?.description}</p>
 								</div>
 							</div>
-
+							<Doctors id={id} />
 						</div>
 						<div className="flex flex-col gap-y-4 gap-2 mb-4">
 							<div className="bg-white px-3 py-4 rounded">

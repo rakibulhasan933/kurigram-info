@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { BedDoubleIcon, Bookmark, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, PhoneCallIcon, WifiIcon } from 'lucide-react';
+import { BedDoubleIcon, Bookmark, BriefcaseIcon, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, MapPinIcon, ParkingCircleIcon, PhoneCallIcon, WifiIcon } from 'lucide-react';
 import SliderCard from '@/components/SliderCard';
 import RestaurantMenu from '@/components/RestaurantMenu';
 import Review from '@/components/Review';
@@ -36,25 +36,25 @@ async function HotelCard({ params }: ParamsIProps) {
 									<p className=" text-sm font-normal">{data?.description}</p>
 								</div>
 							</div>
-							<div className="bg-white px-3 py-4">
-								<div className="flex flex-col gap-2">
-									<h1 className=" font-semibold text-center text-xl md:text-4xl">We have everything you need</h1>
-									<div className="py-2 grid grid-cols-2  gap-x-2">
-										<div className=" flex flex-row items-center gap-y-4	p-2 gap-x-4">
+							<div className="bg-white px-1 py-4">
+								<div className="flex flex-col gap-1">
+									<h1 className=" font-semibold text-center text-xl py-4 md:text-4xl">We have everything you need</h1>
+									<div className="py-2 grid grid-cols-2  gap-x-1">
+										<div className=" flex flex-row items-center gap-y-2	p-1 gap-x-2">
 											<h2 className=""><WifiIcon className=' text-blue-300' size={60} /></h2>
 											<h2 className=" md:text-lg text-base font-normal">Free available high <br /> speed WiFi</h2>
 										</div>
-										<div className=" flex flex-row items-center gap-y-4	p-2 gap-x-4">
-											<h2 className=""><WifiIcon className=' text-blue-300' size={60} /></h2>
-											<h2 className=" md:text-lg text-base font-normal">Free available high <br /> speed WiFi</h2>
+										<div className=" flex flex-row items-center gap-y-2	p-1 gap-x-2">
+											<h2 className=""><MapPinIcon className=' text-blue-300' size={60} /></h2>
+											<h2 className=" md:text-lg text-base font-normal">Сonvenient location <br /> in the center</h2>
 										</div>
-										<div className=" flex flex-row items-center gap-y-4	p-2 gap-x-4">
-											<h2 className=""><WifiIcon className=' text-blue-300' size={60} /></h2>
-											<h2 className=" md:text-lg text-base font-normal">Free available high <br /> speed WiFi</h2>
+										<div className=" flex flex-row items-center gap-y-2	p-1 gap-x-2">
+											<h2 className=""><BriefcaseIcon className=' text-blue-300' size={60} /></h2>
+											<h2 className=" md:text-lg text-base font-normal">Free storage of <br /> luggage of any size</h2>
 										</div>
-										<div className=" flex flex-row items-center gap-y-4	p-2 gap-x-4">
-											<h2 className=""><WifiIcon className=' text-blue-300' size={60} /></h2>
-											<h2 className=" md:text-lg text-base font-normal">Free available high <br /> speed WiFi</h2>
+										<div className=" flex flex-row items-center gap-y-2	p-1 gap-x-2">
+											<h2 className=""><ParkingCircleIcon className=' text-blue-300' size={60} /></h2>
+											<h2 className=" md:text-lg text-base font-normal">Parking space <br />allocated to you</h2>
 										</div>
 									</div>
 								</div>

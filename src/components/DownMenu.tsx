@@ -43,6 +43,10 @@ const components: { title: string; href: string; }[] = [
 		href: "/education",
 	},
 	{
+		title: "Hospitals",
+		href: "/hospitals",
+	},
+	{
 		title: "Hotels",
 		href: "/hotels",
 	},

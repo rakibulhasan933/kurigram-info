@@ -27,6 +27,15 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { useUser } from "./ContextProvider"
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet"
+
 
 const components: { title: string; href: string; }[] = [
 	{
@@ -62,7 +71,7 @@ const components2: { title: string; href: string; }[] = [
 	},
 	{
 		title: "Phulbari",
-		href: "/fulbari",
+		href: "/phulbari",
 	},
 	{
 		title: "Rajarhat",
@@ -128,20 +137,40 @@ export function DownMenu() {
 				</NavigationMenuList>
 			</NavigationMenu>
 			<div className="mx-1">
-				{user?.phone ? (<AlertDialog>
-					<AlertDialogTrigger asChild>
-						<Image src={user?.photoUrl as string} className=' rounded-full' width={40} height={40} priority={true} alt='profile' />
-					</AlertDialogTrigger>
-					<AlertDialogContent>
-						<AlertDialogHeader>
-							<AlertDialogTitle>Logout Are you absolutely sure?</AlertDialogTitle>
-						</AlertDialogHeader>
-						<AlertDialogFooter>
-							<AlertDialogCancel>Cancel</AlertDialogCancel>
-							<AlertDialogAction onClick={() => logOut()} >Continue</AlertDialogAction>
-						</AlertDialogFooter>
-					</AlertDialogContent>
-				</AlertDialog>) :
+				{user?.phone ? (
+					<Sheet>
+						<SheetTrigger>
+							<Image src={user?.photoUrl as string} className=' rounded-full' width={40} height={40} priority={true} alt='profile' />
+						</SheetTrigger>
+						<SheetContent className=' flex justify-center'>
+							<SheetHeader>
+								<SheetTitle>DashBoard NavBar</SheetTitle>
+								<ul className='mx-2 flex flex-col justify-center gap-x-14'>
+									<li className='text-lg font-medium my-4 bg-blue-500 text-white rounded px-4 py-2'>
+										<Link href="/dashboard">Dashboard</Link>
+									</li>
+									<li className='text-lg font-medium my-4 bg-red-500 text-white rounded px-4 py-2'>
+										<AlertDialog>
+											<AlertDialogTrigger asChild>
+												<button>Logout</button>
+											</AlertDialogTrigger>
+											<AlertDialogContent>
+												<AlertDialogHeader>
+													<AlertDialogTitle>Logout Are you absolutely sure?</AlertDialogTitle>
+												</AlertDialogHeader>
+												<AlertDialogFooter>
+													<AlertDialogCancel>Cancel</AlertDialogCancel>
+													<AlertDialogAction onClick={() => logOut()} >Continue</AlertDialogAction>
+												</AlertDialogFooter>
+											</AlertDialogContent>
+										</AlertDialog>
+									</li>
+								</ul>
+
+							</SheetHeader>
+						</SheetContent>
+					</Sheet>
+				) :
 					<Button className='text-sm bg-blue-400 text-white' asChild>
 						<Link href="/login">Login</Link>
 					</Button>}

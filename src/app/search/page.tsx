@@ -98,7 +98,7 @@ function Search() {
 										</FormControl>
 										<SelectContent>
 											<SelectItem defaultChecked value="all">All</SelectItem>
-											<SelectItem value="educational">Educational</SelectItem>
+											<SelectItem value="education">Educational</SelectItem>
 											<SelectItem value="places">Places</SelectItem>
 											<SelectItem value="restaurants">Restaurants</SelectItem>
 											<SelectItem value="hotels">Hotels</SelectItem>

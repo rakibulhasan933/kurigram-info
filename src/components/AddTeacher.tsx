@@ -17,8 +17,9 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { TeacherProps } from "@/type";
-import { UploadButton } from "@/lib/uploadthing"
 import { useState } from "react"
+import { UploadButton } from "@/lib/uploadthing"
+import { Input } from "@/components/ui/input"
 
 const FormSchema = z.object({
 	name: z
@@ -79,7 +80,7 @@ export function AddTeachers({ id }: { id: string }) {
 			<form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
 				<div className="flex flex-col">
 					<h2 className=" font-normal text-center text-sm">Image(100X100)</h2>
-					<UploadButton className='w-full h-20 mt-1 text-sm text-slate-400'
+					<UploadButton className='w-full h-20 mt-1 text-sm text-blue-400'
 						endpoint="imageUploader"
 						onClientUploadComplete={(res) => {
 							setImages(res?.[0]?.url);
@@ -97,7 +98,7 @@ export function AddTeachers({ id }: { id: string }) {
 						<FormItem>
 							<FormLabel>Name</FormLabel>
 							<FormControl>
-								<Textarea
+								<Input
 									placeholder="Type name here."
 									{...field}
 								/>
@@ -113,7 +114,7 @@ export function AddTeachers({ id }: { id: string }) {
 						<FormItem>
 							<FormLabel>Department</FormLabel>
 							<FormControl>
-								<Textarea
+								<Input
 									placeholder="Type department here."
 									{...field}
 								/>
@@ -127,9 +128,9 @@ export function AddTeachers({ id }: { id: string }) {
 					name="phone"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Your Message</FormLabel>
+							<FormLabel>Phone</FormLabel>
 							<FormControl>
-								<Textarea
+								<Input
 									placeholder="Type phone number here."
 									{...field}
 								/>

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Provider from '@/components/Provider';
 import { Toaster } from "react-hot-toast";
 import { ContextProvider } from '@/components/ContextProvider';
+import "@uploadthing/react/styles.css";
 
 const inter = Ubuntu({ subsets: ['latin'], weight: ["300", "400", "500", "700"] });
 

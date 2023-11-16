@@ -25,7 +25,7 @@ function Team() {
 	return (
 		<div className="bg-white py-24  px-4">
 			<h2 className="md:text-3xl mb-10 text-center font-bold tracking-tight text-gray-900  text-2xl">Meet our Contributor</h2>
-			<div className="grid  md:grid-cols-3 grid-cols-2 gap-y-8 md:gap-x-4  mx-auto">
+			<div className="grid  md:grid-cols-3 grid-cols-1 gap-y-8 md:gap-x-4  mx-auto">
 				{people.map((person) => (
 					<div key={person.name}>
 						<div className="flex justify-center items-center gap-x-6">

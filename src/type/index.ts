@@ -66,3 +66,18 @@ export interface UserIProps {
 	phone: string,
 	photoUrl: string,
 }
+export interface TeacherProps {
+	productId: string,
+	name: string,
+	image: string,
+	department: string,
+	phone: string,
+}
+export interface TeacherIProps {
+	id: string,
+	productId: string,
+	name: string,
+	image: string,
+	department: string,
+	phone: string,
+}

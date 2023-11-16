@@ -32,6 +32,17 @@ model Service {
   @@map("services")
 }
 
+model Teacher {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  productId  String
+  name       String
+  image      String
+  department String
+  phone      String
+
+  @@map("teachers")
+}
+
 model Review {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   productId String

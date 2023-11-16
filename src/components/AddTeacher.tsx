@@ -20,6 +20,8 @@ import { TeacherProps } from "@/type";
 import { useState } from "react"
 import { UploadButton } from "@/lib/uploadthing"
 import { Input } from "@/components/ui/input"
+import "@uploadthing/react/styles.css";
+
 
 const FormSchema = z.object({
 	name: z

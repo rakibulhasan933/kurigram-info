@@ -23,15 +23,15 @@ function Doctors({ id }: { id: string }) {
 	}, []);
 	return (
 		<div className="">
-			<h2 className=' text-xl font-semibold py-4 text-center'>Teacher List</h2>
+			<h2 className=' text-xl font-semibold py-4 text-center'>Doctors List</h2>
 			<div className="my-4">
 				<Dialog>
 					<DialogTrigger asChild>
-						<Button variant="outline"><PlusSquareIcon className='w-4 mr-2' /> Add Teacher</Button>
+						<Button variant="outline"><PlusSquareIcon className='w-4 mr-2' /> Add Doctor</Button>
 					</DialogTrigger>
 					<DialogContent className="sm:max-w-[425px]">
 						<DialogHeader>
-							<DialogTitle>Add Teacher</DialogTitle>
+							<DialogTitle>Add Doctor</DialogTitle>
 						</DialogHeader>
 						<div className="grid gap-2 py-2">
 							<AddDoctor id={id} />

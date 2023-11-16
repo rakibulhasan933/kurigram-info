@@ -47,6 +47,7 @@ export interface ReviewI {
 }
 export interface SearchIProps {
 	search: string,
+	category: string,
 }
 export interface PasswordIProps {
 	id: string,

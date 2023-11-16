@@ -8,14 +8,38 @@ export const POST = async (request: Request) => {
 		const { search, category } = body;
 		console.log(body);
 		if (category === "all") {
-			const result = await prisma.service.findMany();
-			return NextResponse.json(result);
+			if (search === '') {
+				const result = await prisma.service.findMany();
+				return NextResponse.json(result);
+			} else {
+				const result = await prisma.service.findMany({
+					where: {
+						OR: [
+							{
+								title: {
+									contains: search,
+									mode: "insensitive"
+								}
+							},
+							{
+								category: {
+									contains: search,
+									mode: "insensitive"
+								}
+							}
+						]
+					}
+				})
+				return NextResponse.json(result);
+			}
+
 		} else {
 			const result = await prisma.service.findMany({
 				where: {
 					category
 				}
 			});
+
 			return NextResponse.json(result);
 		}
 	} catch (error) {

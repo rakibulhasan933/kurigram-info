@@ -1,11 +1,22 @@
+"use client";
+import { ServicesProps } from '@/type';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { HeartIcon, LocateFixedIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import prisma from '@/lib/db/prisma';
 
-async function Restaurants() {
-	const data = await prisma.service.findMany({ where: { category: "restaurants" } });
+
+function Restaurants() {
+	const { data, isLoading } = useQuery<ServicesProps[]>({
+		queryKey: ["restaurants"],
+		queryFn: async () => {
+			const response = await axios.get('/api/restaurants');
+			return response.data;
+		},
+		refetchInterval: 1000,
+	});
 	return (
 		<div className='mx-2 md:mx-4 my-4'>
 			<div className="flex flex-row items-center justify-between mt-2">
@@ -19,7 +30,7 @@ async function Restaurants() {
 								<Image src={item.thumbnails} className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">{item.title}</h2>
-									<p className="text-sm font-semibold mb-2">{item.description}</p>
+									<p className="text-sm font-semibold mb-2">{item.description.slice(0, 20)}</p>
 									<h2 className="flex flex-row mr-2 mb-2 hover:text-pink-400"><LocateFixedIcon className='w-4 mr-2  text-pink-400' />
 										<a href={item?.location} target="_blank" rel="noopener noreferrer">Google Maps Link</a>
 									</h2>

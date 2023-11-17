@@ -1,18 +1,31 @@
+"use client";
 import { ServicesProps } from '@/type';
-import { HeartIcon, LocateFixedIcon, PhoneCallIcon } from 'lucide-react'
+import { HeartIcon, Loader2Icon, LocateFixedIcon, PhoneCallIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import prisma from '@/lib/db/prisma';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
-async function Hotels() {
-	const data: ServicesProps[] = await prisma.service.findMany({ where: { category: "hotels" } });
+function Hotels() {
+	const { data, isLoading } = useQuery<ServicesProps[]>({
+		queryKey: ["hotels"],
+		queryFn: async () => {
+			const response = await axios.get('/api/hotels');
+			return response.data;
+		},
+		refetchInterval: 1000,
+	});
 	return (
 		<div className='mx-2 md:mx-4 my-4'>
 			<div className="flex flex-row items-center justify-between mt-2">
 				<h2 className="px-4 py-2 rounded md:text-xl text-sm font-medium text-white bg-pink-400 w-fit">Where to Stay in Kurigram</h2>
 			</div>
-			{data?.length === 0 ? <h2 className="py-4 flex justify-center items-center text-2xl font-semibold text-blue-400">Coming Soon... </h2> : <div className="mt-4 grid md:grid-cols-4  grid-cols-1 gap-3">
+			{isLoading ? (
+				<div className='flex justify-center top-1/2'>
+					<Loader2Icon className="h-10 w-10 text-blue-500 animate-spin" />
+				</div>
+			) : <div className="mt-4 grid md:grid-cols-4  grid-cols-1 gap-3">
 				{
 					data?.map((item) => (
 						<Link key={item.id} href={`/${item.category}/${item.id}`}>
@@ -20,7 +33,7 @@ async function Hotels() {
 								<Image src={item.thumbnails} className=' rounded-md object-cover w-full' alt='room' width={300} height={200} priority={true} />
 								<div className="px-2 py-4 flex flex-col gap-x-3">
 									<h2 className="font-bold text-lg  hover:text-pink-400">{item.title}</h2>
-									<p className="text-sm font-semibold mb-2">{item.description}</p>
+									<p className="text-sm font-semibold mb-2">{item.description.slice(0, 20)}</p>
 									<h2 className="flex flex-row mr-2 mb-2 hover:text-pink-400"><LocateFixedIcon className='w-4 mr-2  text-pink-400' />
 										<a href={item?.location} target="_blank" rel="noopener noreferrer">Google Maps Link</a>
 									</h2>

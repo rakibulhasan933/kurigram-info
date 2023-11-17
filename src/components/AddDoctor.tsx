@@ -23,17 +23,9 @@ import "@uploadthing/react/styles.css";
 
 
 const FormSchema = z.object({
-	name: z
-		.string()
-		.min(5, {
-			message: "name must be required.",
-		}),
-	department: z.string().min(5, {
-		message: "department must be required.",
-	}),
-	phone: z.string().min(5, {
-		message: "phone must be required.",
-	}),
+	name: z.string(),
+	department: z.string(),
+	phone: z.string(),
 })
 
 export function AddDoctor({ id }: { id: string }) {

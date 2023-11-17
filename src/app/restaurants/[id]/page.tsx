@@ -25,8 +25,8 @@ async function RestaurantCard({ params }: ParamsIProps) {
 		<div className='bg-gray-50'>
 			<SliderCard data={data} />
 			<div className="mx-2 md:mx-4 my-8">
-				<div className="flex flex-col gap-4  px-2  md:px-12 py-2">
-					<h1 className="md:text-2xl text-xl  font-bold mb-2">{data?.title}</h1>
+				<div className="px-2  md:px-12 py-2">
+					<h1 className="md:text-2xl text-xl font-medium mb-2 uppercase text-blue-400">WELCOME TO {data?.title}</h1>
 				</div>
 				<hr className='w-full h-2 my-4' />
 				<div className="px-2 md:px-4">

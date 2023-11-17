@@ -23,14 +23,8 @@ import "@uploadthing/react/styles.css";
 
 
 const FormSchema = z.object({
-	name: z
-		.string()
-		.min(5, {
-			message: "name must be required.",
-		}),
-	price: z.string().min(5, {
-		message: "phone must be required.",
-	}),
+	name: z.string(),
+	price: z.string()
 })
 
 export function AddMenu({ id }: { id: string }) {
@@ -112,7 +106,7 @@ export function AddMenu({ id }: { id: string }) {
 							<FormLabel>Price</FormLabel>
 							<FormControl>
 								<Input
-									placeholder="Type price number here."
+									placeholder="Type price  here."
 									{...field}
 								/>
 							</FormControl>

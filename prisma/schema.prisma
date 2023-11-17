@@ -28,6 +28,7 @@ model Service {
   category    String
   photos      String[]
   description String
+  location    String
 
   @@map("services")
 }

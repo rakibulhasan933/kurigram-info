@@ -38,10 +38,10 @@ export const PATCH = async (request: Request) => {
 export const POST = async (request: Request) => {
 	try {
 		const body: ServicesIProps = await request.json();
-		const { thumbnails, photos, title, category, description } = body;
+		const { thumbnails, photos, title, category, description, location } = body;
 		const result = await prisma.service.create({
 			data: {
-				title, description, category, photos, thumbnails
+				title, description, category, photos, thumbnails, location
 			}
 		});
 		return NextResponse.json(result);

@@ -5,6 +5,7 @@ export interface ServicesIProps {
 	title: string,
 	category: string,
 	description: string,
+	location: string,
 };
 export interface ServicesProps {
 	id: string,
@@ -13,6 +14,7 @@ export interface ServicesProps {
 	title: string,
 	category: string,
 	description: string,
+	location: string
 }
 export interface UpdateIProps {
 	id: string,

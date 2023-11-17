@@ -58,7 +58,9 @@ function TopPlaces() {
 												<div className="px-2 py-4 flex flex-col gap-x-3">
 													<h2 className="font-bold text-lg  hover:text-pink-400">{item.title}</h2>
 													<p className="text-sm font-semibold mb-2">{item.description.slice(0, 20)}..</p>
-													<h2 className="flex flex-row mr-2 mb-2 hover:text-pink-400"><LocateFixedIcon className='w-4 mr-2  text-pink-400' />Kurigram</h2>
+													<h2 className="flex flex-row mr-2 mb-2 hover:text-pink-400"><LocateFixedIcon className='w-4 mr-2  text-pink-400' />
+														<a href={item?.location} target="_blank" rel="noopener noreferrer">Google Maps Link</a>
+													</h2>
 													<hr className='w-full my-2' />
 													<div className="flex justify-between">
 														<div className="flex flex-row gap-y-2">

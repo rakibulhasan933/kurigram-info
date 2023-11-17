@@ -1,8 +1,8 @@
 import React from 'react';
-import { Bookmark, BriefcaseIcon, FileSpreadsheet, Globe, HeartIcon, MailIcon, MapPin, MapPinIcon, ParkingCircleIcon, PhoneCallIcon, WifiIcon } from 'lucide-react';
+import { Bookmark, BriefcaseIcon, FileSpreadsheet, Globe, LocateFixedIcon, MailIcon, MapPin, MapPinIcon, ParkingCircleIcon, PhoneCallIcon, WifiIcon } from 'lucide-react';
 import SliderCard from '@/components/SliderCard';
 
-import { ParamsIProps, ServicesProps } from '@/type';
+import { ParamsIProps } from '@/type';
 import prisma from '@/lib/db/prisma';
 import Comment from '@/components/Comment';
 
@@ -15,6 +15,7 @@ async function HotelCard({ params }: ParamsIProps) {
 		category: string;
 		photos: string[];
 		description: string;
+		location: string;
 	} | null = await prisma.service.findUnique({ where: { id } });
 
 	return (
@@ -67,7 +68,9 @@ async function HotelCard({ params }: ParamsIProps) {
 									<h1 className=" text-sm flex flex-row items-center font-medium hover:text-pink-400"> <MailIcon className='w-6 mr-3' /> info@perapalace.com</h1>
 									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <PhoneCallIcon className='w-6 mr-3' />+8801793874052 </h1>
 									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <Globe className='w-6 mr-3' />https://www.perapalace.com</h1>
-									<h1 className=" text-sm flex flex-row items-center font-medium  hover:text-pink-400"> <MapPin className='w-6 mr-3' />Kurigram</h1>
+									<h2 className="flex flex-row mr-2 mb-2 hover:text-pink-400"><LocateFixedIcon className='w-4 mr-2  text-pink-400' />
+										<a href={data?.location} target="_blank" rel="noopener noreferrer">Google Maps Link</a>
+									</h2>
 								</div>
 							</div>
 							<div className="bg-white px-3 py-4">

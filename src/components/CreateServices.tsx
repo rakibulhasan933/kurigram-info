@@ -35,6 +35,7 @@ const formSchema = z.object({
 	}),
 	description: z.string(),
 	category: z.string(),
+	location: z.string(),
 });
 
 function CreateServices() {
@@ -46,15 +47,16 @@ function CreateServices() {
 		defaultValues: {
 			title: "",
 			description: "",
+			location: "",
 			category: "hotels"
 		},
 	});
 
 	// Create Services
 	const { mutate, isPending } = useMutation({
-		mutationFn: async ({ title, description, category, thumbnails, photos }: ServicesIProps) => {
+		mutationFn: async ({ title, description, category, thumbnails, photos, location }: ServicesIProps) => {
 			const response = await axios.post("/api/services", {
-				title, description, category, thumbnails, photos,
+				title, description, category, thumbnails, photos, location
 			});
 			return response.data;
 		}
@@ -66,9 +68,10 @@ function CreateServices() {
 		const title = values.title;
 		const description = values.description;
 		const category = values.category;
+		const location = values.location;
 		const thumbnails = thumbnail as string;
 		const photos = photo as string[];
-		mutate({ title, description, category, thumbnails, photos }, {
+		mutate({ title, description, category, thumbnails, photos, location }, {
 			onSuccess: (data) => {
 				if (data?.id) {
 					toast.success("Services Created Successfully");
@@ -81,7 +84,7 @@ function CreateServices() {
 
 	return (
 		<Form  {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
 				<div className="flex flex-col">
 					<h2 className=" font-normal text-center text-sm">Thumbnail(300X200)</h2>
 					<UploadButton className='w-full h-20 mt-1 text-sm text-slate-400'
@@ -130,6 +133,22 @@ function CreateServices() {
 							<FormControl>
 								<Textarea
 									placeholder="Description"
+									{...field}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name="location"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Google Map Link</FormLabel>
+							<FormControl>
+								<Input
+									placeholder="enter Google Map Link"
 									{...field}
 								/>
 							</FormControl>

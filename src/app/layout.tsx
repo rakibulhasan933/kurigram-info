@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Provider from '@/components/Provider';
 import { Toaster } from "react-hot-toast";
 import { ContextProvider } from '@/components/ContextProvider';
+import Link from 'next/link';
 
 const inter = Ubuntu({ subsets: ['latin'], weight: ["300", "400", "500", "700"] });
 
@@ -27,6 +28,8 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Toaster />
+            <p className='mx-2 py-4 font-medium text-base text-blue-400 text-center' >If you want to contribute to our website, <Link className=' font-bold text-orange-500' href="/register">register</Link> on our page</p>
+            <p className='mx-2 py-4 font-medium text-base text-red-400 text-center' >If any of our pages contain incorrect information, please let me know and we will try to correct it as soon as possible.</p>
             <Footer />
           </body>
         </html>

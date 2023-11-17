@@ -1,18 +1,12 @@
 import React from 'react'
-import prisma from '@/lib/db/prisma';
 
 async function Stats() {
-	"use server"
-	const education = await prisma.service.findMany({ where: { category: "education" } });
-	const hotels = await prisma.service.findMany({ where: { category: "hotels" } });
-	const restaurants = await prisma.service.findMany({ where: { category: "restaurants" } });
-	const places = await prisma.service.findMany({ where: { category: "places" } });
 
 	const stats = [
-		{ id: 1, name: 'Institutions', value: education.length },
-		{ id: 2, name: 'Hotels', value: hotels.length },
-		{ id: 3, name: 'Restaurants', value: restaurants.length },
-		{ id: 4, name: 'Places', value: places.length },
+		{ id: 1, name: 'Institutions', value: 10 },
+		{ id: 2, name: 'Hotels', value: 10 },
+		{ id: 3, name: 'Restaurants', value: 10 },
+		{ id: 4, name: 'Places', value: 10 },
 	]
 	return (
 		<div className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 py-24 sm:py-32">

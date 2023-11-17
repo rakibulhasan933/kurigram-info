@@ -1,12 +1,14 @@
 import prisma from "@/lib/db/prisma"
+import { ParamsProps } from "@/type";
 import { NextResponse } from "next/server";
 
 
-export const GET = async () => {
+export const GET = async (request: Request, { params }: ParamsProps) => {
 	try {
+		const { category } = params;
 		const result = await prisma.service.findMany({
 			where: {
-				category: "education"
+				category
 			}
 		});
 		return NextResponse.json(result);
